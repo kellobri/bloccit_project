@@ -22,12 +22,13 @@ end
 topics = Topic.all
 
 50.times do 
-	Post.create!(
+	post = Post.create!(
 		user: users.sample,
 		topic: topics.sample,
 		title: Faker::Lorem.sentence,
 		body: Faker::Lorem.paragraph
 		)
+		post.create_summary(synopsis: Faker::Lorem.paragraph)
 end
 posts = Post.all
 
@@ -39,17 +40,6 @@ posts = Post.all
 		)
 end
 
-50.times do 
-	Summary.create!(
-		post: posts.sample,
-		synopsis: Faker::Lorem.paragraph
-		)
-end
-summaries = Summary.all
-
-summaries.each do |summary|
-	p summary.post_id
-end
 #Post.create!(
 #	title: "You Won't Believe the Three Salad Dressings I got from Whole Foods Today",
 #	body: "1. Ranch Chia  2. Apple Fennel  3. Balsamic Thyme"
