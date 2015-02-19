@@ -39,6 +39,13 @@ posts = Post.all
 		)
 end
 
+5.times do 
+	Summary.create!(
+		post: posts.sample,
+		synopsis: Faker::Lorem.paragraph
+		)
+end
+
 #Post.create!(
 #	title: "You Won't Believe the Three Salad Dressings I got from Whole Foods Today",
 #	body: "1. Ranch Chia  2. Apple Fennel  3. Balsamic Thyme"
