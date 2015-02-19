@@ -39,13 +39,17 @@ posts = Post.all
 		)
 end
 
-5.times do 
+50.times do 
 	Summary.create!(
 		post: posts.sample,
 		synopsis: Faker::Lorem.paragraph
 		)
 end
+summaries = Summary.all
 
+summaries.each do |summary|
+	p summary.post_id
+end
 #Post.create!(
 #	title: "You Won't Believe the Three Salad Dressings I got from Whole Foods Today",
 #	body: "1. Ranch Chia  2. Apple Fennel  3. Balsamic Thyme"
@@ -83,3 +87,4 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Summary.count} summaries created"

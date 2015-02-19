@@ -6,6 +6,6 @@ class CreateSummaries < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :summaries, :posts
+    add_foreign_key :summary, :posts
   end
 end
