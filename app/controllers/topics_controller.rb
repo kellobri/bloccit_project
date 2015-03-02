@@ -1,6 +1,14 @@
 class TopicsController < ApplicationController
+
+  include WillPaginate
+
   def index
-  	@topics = Topic.paginate(page: params[:page], per_page: 10)
+  	#@topics = Topic.all
+    indexpages = paginate(:page => params[:page], :per_page => 4)
+    indexpages.each do |ind|
+      @topics = ind
+    end 
+    #@topics = Topic.paginate(:page => params[:page], :per_page => 10)
   	authorize @topics 
   end
 
@@ -9,9 +17,10 @@ class TopicsController < ApplicationController
   	authorize @topic
   end
 
-  def show
+  def show 
   	@topic = Topic.find(params[:id])
-  	@posts = @topic.posts.paginate(page: params[:page], per_page: 10)
+  	#@posts = @topic.posts.paginate(page: params[:page], per_page: 10)
+    @posts = @topic.posts.all
   	authorize @topic
   end
 
