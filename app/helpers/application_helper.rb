@@ -18,4 +18,6 @@ module ApplicationHelper
 		(redcarpet.render markdown).html_safe
 	end
 
+	include WillPaginate
+
 end
