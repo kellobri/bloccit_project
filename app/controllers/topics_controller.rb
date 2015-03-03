@@ -4,11 +4,7 @@ class TopicsController < ApplicationController
 
   def index
   	#@topics = Topic.all
-    indexpages = paginate(:page => params[:page], :per_page => 4)
-    indexpages.each do |ind|
-      @topics = ind
-    end 
-    #@topics = Topic.paginate(:page => params[:page], :per_page => 10)
+    @topics = paginate(page: params[:page], per_page: 4)
   	authorize @topics 
   end
 

@@ -18,9 +18,6 @@ module ApplicationHelper
 		(redcarpet.render markdown).html_safe
 	end
 
-	def will_paginate(collection)
-		#return nil unless collection.total_pages > 1
-
-	end	
+	include WillPaginate
 
 end
