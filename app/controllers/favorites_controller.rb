@@ -13,8 +13,8 @@ class FavoritesController < ApplicationController
   		end
   	end
 
-  	def destroy
-  		@post = Post.find(params[:post_id])
+  def destroy
+  	@post = Post.find(params[:post_id])
 		favorite = current_user.favorites.find(params[:id])
 
 		authorize favorite
@@ -25,5 +25,5 @@ class FavoritesController < ApplicationController
       	flash[:error] = "Favorite could not be deleted. Try again."
       	redirect_to [@post.topic, @post]
     end
-  	end
+  end
 end
