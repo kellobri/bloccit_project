@@ -21,4 +21,16 @@ module TestFactories
 		user
 	end
 
+	FactoryGirl.define do
+  		factory :user do
+  			name 'factory worker'
+    		email 'test@example.com'
+    		password 'f4k3p455w0rd'
+  		end
+	end
+
+	def comment_without_email
+
+	end
+
 end
