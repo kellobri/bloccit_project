@@ -12,10 +12,14 @@
 		<br/>
 		<% if policy(@comment).new? %>
 			<h3>Add a comment:</h3>
-			<%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+			<div class='new-comment'>
+				<%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+			</div>
 		<% end %>
 		<hr/>
-		<%= render partial: 'comments/comment', collection: @comments %>
+		<div class='js-comments'>
+			<%= render partial: 'comments/comment', collection: @comments %>
+		</div>
 	</div>
 	<div class="col-md-4">
 		<% if policy(@post).edit? %>
